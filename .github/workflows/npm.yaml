@@ -1,0 +1,58 @@
+name: Node Package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: npm
+
+      - name: install
+        run: npm ci
+
+      - name: tests
+        run: npm run test
+
+  publish:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          registry-url: https://npm.pkg.github.com/
+
+      - name: install
+        run: npm ci
+
+      - name: Publish to gh/npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
