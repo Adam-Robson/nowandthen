@@ -1,0 +1,9 @@
+node_modules
+src
+tests/*
+benchmarks
+*.log
+.github
+eslint.config.js
+.prettierrc
+tsconfig.json

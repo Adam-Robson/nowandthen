@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./",
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "*.config.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "dist", "tests", "benchmarks/benchmarks.js"]
+}

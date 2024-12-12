@@ -1,0 +1,71 @@
+{
+  "name": "@adam-robson/nowandthen",
+  "version": "0.0.1",
+  "author": "Adam Robson <adamrayrobson@gmail.com> (https://github.com/adam-robson)",
+  "type": "module",
+  "description": "lightweight date utility functions",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && tsc",
+    "lint": "eslint",
+    "test": "vitest",
+    "debug": "pnpm run lint && npm run test",
+    "build": "pnpm run clean && tsup src/index.ts --format esm,cjs --dts --out-dir dist --minify",
+    "benchmark": "node benchmarks/benchmarks.js",
+    "start": "pnpm run build && node dist/index.js",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "pack": "npm run publish --dry-run",
+    "release": "pnpm publish --access public --tag beta"
+  },
+  "files": [
+    "dist",
+    "README.MD",
+    "LICENSE"
+  ],
+  "keywords": [
+    "date",
+    "utilities",
+    "node",
+    "npm",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.10.2",
+    "@types/nodemon": "^1.19.6",
+    "benchmark": "^2.1.4",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.13.0",
+    "nodemon": "^3.1.7",
+    "npm-package-json-lint": "^8.0.0",
+    "prettier": "^3.4.2",
+    "tslib": "^2.8.1",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adam-robson/nowandthen.git",
+    "directory": "src"
+  },
+  "bugs": {
+    "url": "https://github.com/adam-robson/nowandthen/issues"
+  },
+  "homepage": "https://github.com/adam-robson/nowandthen#readme"
+}
