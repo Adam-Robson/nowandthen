@@ -21,7 +21,7 @@
     "start": "pnpm run build && node dist/index.js",
     "dev": "nodemon --exec tsx src/index.ts",
     "pack": "npm run publish --dry-run",
-    "release": "pnpm publish --access public --tag beta"
+    "release": "pnpm publish --provenance --access public"
   },
   "files": [
     "dist",
@@ -61,7 +61,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adam-robson/nowandthen.git",
+    "url": "git+https://github.com/adam-robson/nowandthen.git",
     "directory": "src"
   },
   "bugs": {
