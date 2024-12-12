@@ -1,9 +1,9 @@
 import { describe, test, expect } from 'vitest';
-import { today } from '../src/today';
+import { currentDate } from '../src/current-date';
 
 describe('function today', () => {
   test('returns the current date in YYYY-MM-DD format', () => {
-    const result = today();
+    const result = currentDate();
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
