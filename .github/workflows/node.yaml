@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
   release:
     types: [published, created]
@@ -44,10 +41,9 @@ jobs:
       id-token: write
 
     steps:
-      - name: checkout 
+      - name: checkout
         uses: actions/checkout@v4
 
-      
       # Setup .npmrc file to publish to npm
       - name: setup node v. '20.x'
         uses: actions/setup-node@v4
@@ -65,4 +61,3 @@ jobs:
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
