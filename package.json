@@ -1,7 +1,7 @@
 {
   "name": "@adam-robson/nowandthen",
   "version": "0.0.1",
-  "author": "Adam Robson <adamrayrobson@gmail.com> (https://github.com/adam-robson)",
+  "author": "Adam Robson <adamrayrobson@gmail.com> (https://github.com/Adam-Robson)",
   "type": "module",
   "description": "lightweight date utility functions",
   "main": "./dist/index.cjs",
@@ -61,11 +61,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adam-robson/nowandthen.git",
+    "url": "git+https://github.com/Adam-Robson/nowandthen.git",
     "directory": "src"
   },
   "bugs": {
-    "url": "https://github.com/adam-robson/nowandthen/issues"
+    "url": "https://github.com/Adam-Robson/nowandthen/issues"
   },
-  "homepage": "https://github.com/adam-robson/nowandthen#readme"
+  "homepage": "https://github.com/Adam-Robson/nowandthen#readme"
 }
