@@ -1,12 +1,8 @@
-[top](#readme-top)
-
----
-
----
-
-![logo](./nowandthen.svg "nowandthen logo")
-
 # nowandthen
+
+---
+
+![logo](./nowandthen.svg 'nowandthen logo')
 
 ## Description
 
@@ -40,19 +36,19 @@ npm install nowandthen
 ### ES Modules
 
 ```js
-import { currentDate, formatDate } from "nowandthen";
+import { currentDate, formatDate } from 'nowandthen';
 
 console.log(getCurrentDate()); // "2024-12-11"
-console.log(formatDate(new Date(), "MM/DD/YYYY")); // "12/11/2024"
+console.log(formatDate(new Date(), 'MM/DD/YYYY')); // "12/11/2024"
 ```
 
 ### CommonJS
 
 ```js
-const { currentDate, formatDate } = require("nowandthen");
+const { currentDate, formatDate } = require('nowandthen');
 
 console.log(getCurrentDate()); // "2024-12-11"
-console.log(formatDate(new Date(), "MM/DD/YYYY")); // "12/11/2024"
+console.log(formatDate(new Date(), 'MM/DD/YYYY')); // "12/11/2024"
 ```
 
 ---
@@ -72,7 +68,7 @@ Supported tokens:
 Example:
 
 ```js
-formatDate(new Date(), "MM/DD/YYYY"); // "12/11/2024"
+formatDate(new Date(), 'MM/DD/YYYY'); // "12/11/2024"
 ```
 
 `differenceInDays(date1: Date, date2: Date)`: Returns the number of days

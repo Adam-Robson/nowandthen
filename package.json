@@ -1,6 +1,6 @@
 {
   "name": "@adam-robson/nowandthen",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "author": "Adam Robson <adamrayrobson@gmail.com> (https://github.com/Adam-Robson)",
   "type": "module",
   "description": "lightweight date utility functions",
