@@ -1,6 +1,6 @@
 {
   "name": "@adam-robson/nowandthen",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "author": "Adam Robson <adamrayrobson@gmail.com> (https://github.com/Adam-Robson)",
   "type": "module",
   "description": "lightweight date utility functions",
@@ -15,13 +15,13 @@
     "clean": "rm -rf dist && tsc",
     "lint": "eslint",
     "test": "vitest",
-    "debug": "pnpm run lint && npm run test",
+    "debug": "pnpm run lint && pnpm run test",
     "build": "pnpm run clean && tsup src/index.ts --format esm,cjs --dts --out-dir dist --minify",
     "benchmark": "node benchmarks/benchmarks.js",
     "start": "pnpm run build && node dist/index.js",
     "dev": "nodemon --exec tsx src/index.ts",
-    "pack": "npm run publish --dry-run",
-    "release": "pnpm publish --provenance --access public"
+    "pack": "pnpm run publish --dry-run",
+    "release": "pnpm publish --access public"
   },
   "files": [
     "dist",
@@ -30,9 +30,12 @@
   ],
   "keywords": [
     "date",
+    "cjs",
+    "esm",
     "utilities",
     "node",
     "npm",
+    "pnpm",
     "javascript",
     "typescript"
   ],

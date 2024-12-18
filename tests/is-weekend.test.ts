@@ -1,15 +1,15 @@
 import { describe, test, expect } from 'vitest';
-import { weekend } from '../src/weekend';
+import { isWeekend } from '../src/is-weekend';
 
 describe('function isWeekend', () => {
   test('correctly identify weekends', () => {
     const saturday = new Date(2024, 11, 14);
-    expect(weekend(saturday)).toBe(true);
+    expect(isWeekend(saturday)).toBe(true);
 
     const sunday = new Date(2024, 11, 15);
-    expect(weekend(sunday)).toBe(true);
+    expect(isWeekend(sunday)).toBe(true);
 
     const monday = new Date(2024, 11, 16);
-    expect(weekend(monday)).toBe(false);
+    expect(isWeekend(monday)).toBe(false);
   });
 });
