@@ -1,0 +1,68 @@
+name: Node Package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+  release:
+    types: [published, created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['18', '20']
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup node v. ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: install
+        run: npm ci
+
+      - name: tests
+        run: npm run test
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v4
+
+      
+      # Setup .npmrc file to publish to npm
+      - name: setup node v. '20.x'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
