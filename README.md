@@ -10,6 +10,36 @@ A lightweight library for working with dates. Supports Common & ES Modules. Writ
 
 ---
 
+## Build Process
+
+This package uses `pnpm` and `tsup` to manage builds.
+
+---
+
+### Install Dependencies
+
+Ensure you have `pnpm` installed globally:
+
+```sh
+npm install -g pnpm
+
+Then install dependencies:
+
+pnpm install
+
+Build the package:
+
+pnpm build
+```
+
+This will generate:
+
+• CommonJS: dist/index.cjs
+• ESM: dist/index.mjs
+• TypeScript Declarations: dist/index.d.ts
+
+---
+
 ## Features
 
 - format dates
