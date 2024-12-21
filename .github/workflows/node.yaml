@@ -1,4 +1,4 @@
-name: Publish to npm
+name: publish to npm
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
     types: [published, created]
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,23 +20,26 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: setup node v. ${{ matrix.node-version }}
+      - name: setup ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
+          cache: 'pnpm'
 
-      - name: Install pnpm
+      - name: install pnpm
         run: npm install -g pnpm
 
-      - name: Install dependencies
+      - name: install dependencies
         run: pnpm ci
 
-      - name: tests
-        run: pnpm run test
+      - name: test
+        run: pnpm test
+
+      - name: build
+        run: pnpm build
 
   publish:
-    needs: build
+    needs: build-test
     runs-on: ubuntu-latest
 
     permissions:
@@ -64,6 +67,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: publish
-        run: pnpm publish --provenance --access public
+        if: github.ref == 'refs/heads/main'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access publicaa
