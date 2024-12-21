@@ -3,7 +3,7 @@
  * @param dateString The date string (e.g., "2024-12-11", "12/11/2024").
  * @returns A Date object or null if invalid.
  */
-export function parseDate(dateString: string): Date | null {
+function parseDate(dateString: string): Date | null {
   const isoFormat = /^\d{4}-\d{2}-\d{2}$/;
   const slashFormat = /^\d{2}\/\d{2}\/\d{4}$/;
 
@@ -16,3 +16,5 @@ export function parseDate(dateString: string): Date | null {
 
   return null;
 }
+
+export { parseDate };
