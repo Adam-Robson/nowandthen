@@ -17,10 +17,10 @@
     "test": "vitest",
     "debug": "pnpm run lint && pnpm run test",
     "build": "pnpm run clean && tsup src/index.ts --format esm,cjs --dts --out-dir dist --minify",
-    "benchmark": "node benchmarks/benchmarks.js",
+    "benchmark": "pnpm run build && node benchmarks/benchmarks.js",
     "start": "pnpm run build && node dist/index.js",
     "dev": "nodemon --exec tsx src/index.ts",
-    "pack": "pnpm run publish --dry-run",
+    "pack": "npm publish --dry-run",
     "release": "pnpm publish --access public"
   },
   "files": [
