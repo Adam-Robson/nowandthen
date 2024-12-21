@@ -3,7 +3,7 @@
  * @param date The date to compare against the current date.
  * @returns A relative time string.
  */
-export function toRelativeTime(date: Date): string {
+function toRelativeTime(date: Date): string {
   const now = new Date();
   const diffInMs = date.getTime() - now.getTime();
   const diffInMinutes = Math.round(diffInMs / (1000 * 60));
@@ -24,3 +24,5 @@ export function toRelativeTime(date: Date): string {
     return `in ${days} days`;
   }
 }
+
+export { toRelativeTime };

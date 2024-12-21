@@ -1,4 +1,4 @@
-import { isLeapYear } from './leap-year';
+import { isLeapYear } from './is-leap-year';
 /**
  * Returns the number of days in a specific month of a given year.
  * @param year The year of the date.
